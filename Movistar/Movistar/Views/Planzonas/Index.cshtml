@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Movistar.Models.Planzona>
+
+@{
+    ViewData["Title"] = "Planes";
+}
+
+<h1>Planes para el hogar</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duracion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duracion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.NombrePlan">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.NombrePlan">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.NombrePlan">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
